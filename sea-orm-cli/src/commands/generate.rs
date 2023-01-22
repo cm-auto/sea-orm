@@ -31,6 +31,7 @@ pub async fn run_generate_command(
             lib,
             model_extra_derives,
             model_extra_attributes,
+            extra_use_statements,
         } => {
             if verbose {
                 let _ = tracing_subscriber::fmt()
@@ -172,6 +173,7 @@ pub async fn run_generate_command(
                 serde_skip_hidden_column,
                 model_extra_derives,
                 model_extra_attributes,
+                extra_use_statements,
             );
             let output = EntityTransformer::transform(table_stmts)?.generate(&writer_context);
 

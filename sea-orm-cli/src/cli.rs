@@ -261,6 +261,15 @@ pub enum GenerateSubcommands {
             help = r#"Add extra attributes to generated model struct, no need for `#[]` (comma separated), ex. `--attributes 'serde(rename_all = "camelCase")','ts(export)'`"#
         )]
         model_extra_attributes: Vec<String>,
+
+        #[clap(
+            value_parser,
+            long,
+            use_value_delimiter = true,
+            takes_value = true,
+            help = r#"Add extra use statements to the module, no need for `use` and `;` (comma separated), ex. `--extra-use-statements 'serde_with::skip_serializing_none'`"#
+        )]
+        extra_use_statements: Vec<String>,
     },
 }
 
